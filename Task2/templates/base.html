@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Academy{% endblock %}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="{% url 'instructor_list' %}">
+        <div class="logo">A</div>
+        <span>Academy</span>
+    </a>
+    <div class="nav-links">
+        <a href="{% url 'instructor_list' %}" {% if active_nav == 'instructors' %}class="active"{% endif %}>Instructors</a>
+        <a href="{% url 'course_list' %}" {% if active_nav == 'courses' %}class="active"{% endif %}>Courses</a>
+        <a href="{% url 'student_list' %}" {% if active_nav == 'students' %}class="active"{% endif %}>Students</a>
+    </div>
+</nav>
+
+{% block header %}{% endblock %}
+
+<main class="container">
+{% block content %}{% endblock %}
+</main>
+
+<footer class="footer">&copy; 2026 Academy. All rights reserved.</footer>
+
+</body>
+</html>

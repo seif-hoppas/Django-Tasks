@@ -1,0 +1,30 @@
+/* ── Instructor Detail (page-specific) ── */
+
+.profile-header h1{color:#fff;font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.25rem;position:relative;z-index:1}
+.profile-header .subtitle{color:#a2b3cf;font-size:1rem;position:relative;z-index:1}
+
+.container{max-width:900px}
+
+/* ── Course Card ── */
+.course{background:#fff;border-radius:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);margin-bottom:1.5rem;overflow:hidden;transition:box-shadow .25s}
+.course:hover{box-shadow:0 6px 20px rgba(0,0,0,.08)}
+.course-header{padding:1.25rem 1.5rem;border-bottom:1px solid #f0f2f5;display:flex;align-items:center;gap:.75rem}
+.course-icon{width:38px;height:38px;background:linear-gradient(135deg,#0f3460,#16213e);border-radius:10px;display:grid;place-items:center;flex-shrink:0}
+.course-icon svg{width:20px;height:20px;fill:#fff}
+.course-header h2{font-size:1.1rem;font-weight:600;letter-spacing:-.01em}
+.course-header .count{margin-left:auto;font-size:.78rem;font-weight:500;color:#64748b;background:#f1f5f9;padding:.25rem .7rem;border-radius:999px}
+.course-name-link{text-decoration:none;color:inherit;font-size:1.1rem;font-weight:600;letter-spacing:-.01em;transition:color .2s}
+.course-name-link:hover{color:#e94560}
+
+/* ── Student List ── */
+.students{padding:1rem 1.5rem 1.25rem;display:flex;flex-wrap:wrap;gap:.85rem}
+.student{display:flex;align-items:center;gap:.6rem;background:#f8fafc;padding:.5rem .85rem .5rem .5rem;border-radius:999px;transition:background .2s;text-decoration:none;color:inherit}
+.student:hover{background:#eef2f7}
+.student img{width:36px;height:36px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+.student-placeholder{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#cbd5e1,#94a3b8);display:grid;place-items:center;font-size:.8rem;font-weight:600;color:#fff;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.1)}
+.student span{font-size:.88rem;font-weight:500;color:#334155}
+.no-students{color:#94a3b8;font-size:.88rem;padding:.35rem 0}
+
+@media(max-width:600px){
+    .students{gap:.6rem}
+}

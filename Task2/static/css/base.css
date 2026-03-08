@@ -1,0 +1,48 @@
+/* ── Reset ── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',system-ui,sans-serif;background:#f0f2f5;color:#1a1a2e;min-height:100vh}
+
+/* ── Navbar ── */
+.navbar{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);padding:1rem 2rem;display:flex;align-items:center;gap:.75rem;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+.navbar .logo{width:36px;height:36px;background:#e94560;border-radius:10px;display:grid;place-items:center;font-weight:700;color:#fff;font-size:1.1rem}
+.navbar span{color:#fff;font-weight:600;font-size:1.15rem;letter-spacing:-.02em}
+.navbar a{text-decoration:none;display:flex;align-items:center;gap:.75rem}
+.nav-links{margin-left:auto;display:flex;gap:1.5rem}
+.nav-links a{color:#a2b3cf;text-decoration:none;font-size:.9rem;font-weight:500;transition:color .2s}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+
+/* ── Hero (shared by list pages) ── */
+.hero{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);padding:3.5rem 2rem 5rem;text-align:center;position:relative;overflow:hidden}
+.hero::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:60px;background:#f0f2f5;border-radius:50% 50% 0 0 / 100% 100% 0 0}
+.hero h1{color:#fff;font-size:2.25rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.5rem;position:relative;z-index:1}
+.hero p{color:#a2b3cf;font-size:1.05rem;max-width:480px;margin:0 auto;position:relative;z-index:1}
+
+/* ── Profile / Detail Header (shared by detail pages) ── */
+.profile-header,.detail-header{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 50%,#0f3460 100%);padding:3rem 2rem 5rem;text-align:center;position:relative}
+.profile-header::after,.detail-header::after{content:'';position:absolute;bottom:-2px;left:0;right:0;height:60px;background:#f0f2f5;border-radius:50% 50% 0 0 / 100% 100% 0 0}
+
+/* ── Avatar ── */
+.avatar-wrapper{width:120px;height:120px;margin:0 auto 1rem;border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,.2);box-shadow:0 8px 24px rgba(0,0,0,.25);position:relative;z-index:1}
+.avatar-wrapper img{width:100%;height:100%;object-fit:cover}
+.avatar-placeholder{width:100%;height:100%;background:linear-gradient(135deg,#e94560,#c73a54);display:grid;place-items:center;font-size:2.5rem;font-weight:700;color:#fff}
+
+/* ── Back link ── */
+.back{display:inline-flex;align-items:center;gap:.4rem;color:#e94560;text-decoration:none;font-weight:500;font-size:.9rem;margin-bottom:1.25rem;transition:gap .2s}
+.back:hover{gap:.65rem}
+.back svg{width:18px;height:18px;fill:currentColor}
+
+/* ── Container ── */
+.container{max-width:1100px;margin:0 auto;padding:1rem 1.5rem 4rem}
+
+/* ── Empty state ── */
+.empty{text-align:center;color:#94a3b8;padding:3rem 0;font-size:1rem}
+.empty-msg{grid-column:1/-1;text-align:center;color:#94a3b8;padding:3rem 0}
+
+/* ── Footer ── */
+.footer{text-align:center;padding:2rem;color:#94a3b8;font-size:.8rem}
+
+/* ── Responsive ── */
+@media(max-width:600px){
+    .hero h1,.profile-header h1,.detail-header h1{font-size:1.5rem}
+    .nav-links{gap:.75rem}
+}

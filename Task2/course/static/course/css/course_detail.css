@@ -1,0 +1,28 @@
+/* ── Course Detail (page-specific) ── */
+
+.detail-icon{width:64px;height:64px;margin:0 auto 1rem;background:rgba(255,255,255,.1);border-radius:16px;display:grid;place-items:center;backdrop-filter:blur(4px);position:relative;z-index:1}
+.detail-icon svg{width:32px;height:32px;fill:#fff}
+.detail-header h1{color:#fff;font-size:2rem;font-weight:700;letter-spacing:-.03em;margin-bottom:.35rem;position:relative;z-index:1}
+.detail-header .subtitle{color:#a2b3cf;font-size:1rem;position:relative;z-index:1}
+.detail-header .subtitle a{color:#e94560;text-decoration:none;font-weight:500;transition:color .2s}
+.detail-header .subtitle a:hover{color:#ff6b81}
+
+.container{max-width:900px}
+
+/* ── Section ── */
+.section-title{font-size:1rem;font-weight:600;color:#1a1a2e;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem}
+.section-title svg{width:18px;height:18px;fill:#e94560}
+.section-title .count{font-weight:400;color:#94a3b8;font-size:.85rem}
+
+/* ── Student Grid ── */
+.student-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-bottom:2rem}
+.student-card{background:#fff;border-radius:14px;padding:1.25rem;text-align:center;box-shadow:0 1px 3px rgba(0,0,0,.06);transition:transform .2s,box-shadow .2s;text-decoration:none;color:inherit}
+.student-card:hover{transform:translateY(-4px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.student-card img{width:64px;height:64px;border-radius:50%;object-fit:cover;margin-bottom:.75rem;border:3px solid #f0f2f5}
+.student-card .student-placeholder{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,#0f3460,#16213e);display:inline-grid;place-items:center;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:.75rem;border:3px solid #f0f2f5}
+.student-card h3{font-size:.95rem;font-weight:600;margin-bottom:.15rem}
+.student-card p{font-size:.78rem;color:#64748b}
+
+@media(max-width:600px){
+    .student-grid{grid-template-columns:1fr 1fr;gap:.75rem}
+}

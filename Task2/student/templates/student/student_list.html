@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Students — Academy{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'student/css/student_list.css' %}">
+{% endblock %}
+
+{% block header %}
+<section class="hero">
+    <h1>Our Students</h1>
+    <p>Talented learners shaping the future through knowledge and dedication.</p>
+</section>
+{% endblock %}
+
+{% block content %}
+    <div class="grid">
+    {% for student in students %}
+        <a class="card" href="{% url 'student_detail' student.id %}">
+            <div class="card-img-wrap">
+                {% if student.image %}
+                    <img class="card-img" src="{{ student.image.url }}" alt="{{ student.name }}">
+                {% else %}
+                    <div class="card-placeholder">{{ student.name|first }}</div>
+                {% endif %}
+            </div>
+            <div class="card-body">
+                <h3>{{ student.name }}</h3>
+                <span class="email">{{ student.email }}</span>
+                <span class="badge">Student</span>
+            </div>
+        </a>
+    {% empty %}
+        <p class="empty-msg">No students found.</p>
+    {% endfor %}
+    </div>
+{% endblock %}

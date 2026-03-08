@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Instructors — Academy{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'instructor/css/instructor_list.css' %}">
+{% endblock %}
+
+{% block header %}
+<section class="hero">
+    <h1>Meet Our Instructors</h1>
+    <p>World-class educators dedicated to helping you master new skills and grow your career.</p>
+</section>
+{% endblock %}
+
+{% block content %}
+    <div class="grid">
+    {% for instructor in instructors %}
+        <a class="card" href="{% url 'instructor_detail' instructor.id %}">
+            {% if instructor.image %}
+                <img class="card-img" src="{{ instructor.image.url }}" alt="{{ instructor.name }}">
+            {% else %}
+                <div class="card-placeholder">{{ instructor.name|first }}</div>
+            {% endif %}
+            <div class="card-body">
+                <h3>{{ instructor.name }}</h3>
+                <span class="badge">Instructor</span>
+            </div>
+        </a>
+    {% empty %}
+        <p class="empty-msg">No instructors found.</p>
+    {% endfor %}
+    </div>
+{% endblock %}

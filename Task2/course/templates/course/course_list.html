@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Courses — Academy{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'course/css/course_list.css' %}">
+{% endblock %}
+
+{% block header %}
+<section class="hero">
+    <h1>Our Courses</h1>
+    <p>Explore a wide range of courses taught by expert instructors.</p>
+</section>
+{% endblock %}
+
+{% block content %}
+    <div class="grid">
+    {% for course in courses %}
+        <a class="card" href="{% url 'course_detail' course.id %}">
+            <div class="card-accent"></div>
+            <div class="card-body">
+                <h3>{{ course.name }}</h3>
+                <div class="card-meta">
+                    <div class="meta-row">
+                        <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+                        <span>Instructor: <strong>{{ course.instructor.name }}</strong></span>
+                    </div>
+                    <div class="badge-row">
+                        <span class="badge badge-instructor">{{ course.instructor.name }}</span>
+                        <span class="badge badge-students">{{ course.students.count }} student{{ course.students.count|pluralize }}</span>
+                    </div>
+                </div>
+            </div>
+        </a>
+    {% empty %}
+        <p class="empty-msg">No courses available.</p>
+    {% endfor %}
+    </div>
+{% endblock %}

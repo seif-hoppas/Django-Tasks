@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ course.name }} — Academy{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'course/css/course_detail.css' %}">
+{% endblock %}
+
+{% block header %}
+<section class="detail-header">
+    <div class="detail-icon">
+        <svg viewBox="0 0 20 20"><path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 01.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.547l1.606.688a3 3 0 002.788 0l1.606-.688v3.547a9.026 9.026 0 00-2.3 1.638z"/></svg>
+    </div>
+    <h1>{{ course.name }}</h1>
+    <p class="subtitle">Taught by <a href="{% url 'instructor_detail' course.instructor.id %}">{{ course.instructor.name }}</a></p>
+</section>
+{% endblock %}
+
+{% block content %}
+    <a class="back" href="{% url 'course_list' %}">
+        <svg viewBox="0 0 20 20"><path d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"/></svg>
+        All Courses
+    </a>
+
+    <div class="section-title">
+        <svg viewBox="0 0 20 20"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/></svg>
+        Enrolled Students
+        <span class="count">({{ course.students.count }})</span>
+    </div>
+
+    <div class="student-grid">
+    {% for student in course.students.all %}
+        <a class="student-card" href="{% url 'student_detail' student.id %}">
+            {% if student.image %}
+                <img src="{{ student.image.url }}" alt="{{ student.name }}">
+            {% else %}
+                <div class="student-placeholder">{{ student.name|first }}</div>
+            {% endif %}
+            <h3>{{ student.name }}</h3>
+            <p>{{ student.email }}</p>
+        </a>
+    {% empty %}
+        <p class="empty">No students enrolled yet.</p>
+    {% endfor %}
+    </div>
+{% endblock %}
